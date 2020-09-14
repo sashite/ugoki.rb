@@ -1,0 +1,15 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-thread_safety
+
+AllCops:
+  Exclude:
+    - test.rb
+
+  NewCops: enable
+  TargetRubyVersion: 2.7
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
