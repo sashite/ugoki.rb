@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require "feen/parser"
+require "set"
 
 module Ugoki
+  # The position abstraction.
   class Position
     # @param feen [String] The FEEN string representing a position.
     #
@@ -16,9 +18,9 @@ module Ugoki
     # Players are identified by a number according to the order in which they
     # traditionally play from the starting position.
     #
-    # @!attribute [r] active_side_id
+    # @!attribute [r] side_id
     #   @return [Integer] The identifier of the player who must play.
-    attr_reader :active_side_id
+    attr_reader :side_id
 
     # The indexes of each bottom-side piece on the board.
     #
@@ -40,21 +42,21 @@ module Ugoki
 
     # The list of pieces in hand owned by players.
     #
-    # @!attribute [r] pieces_in_hand_grouped_by_sides
+    # @!attribute [r] hands
     #   @return [Array] The list of pieces in hand for each side.
-    attr_reader :pieces_in_hand_grouped_by_sides
+    attr_reader :hands
 
     # Initialize a position.
     #
-    # @param active_side_id [Integer] The identifier of the player who must play.
+    # @param side_id [Integer] The identifier of the player who must play.
     # @param board [Hash] The indexes of each piece on the board.
     # @param indexes [Array] The shape of the board.
-    # @param pieces_in_hand_grouped_by_sides [Array] The list of pieces in hand
+    # @param hands [Array] The list of pieces in hand
     #   grouped by players.
     #
     # @example Dump a classic Tsume Shogi problem
     #   new(
-    #     "active_side_id": 0,
+    #     "side_id": 0,
     #     "board": {
     #        3 => "s",
     #        4 => "k",
@@ -63,23 +65,23 @@ module Ugoki
     #       43 => "+B"
     #     },
     #     "indexes": [9, 9],
-    #     "pieces_in_hand_grouped_by_sides": [
+    #     "hands": [
     #       %w[S],
     #       %w[r r b g g g g s n n n n p p p p p p p p p p p p p p p p p]
     #     ]
     #   )
-    def initialize(active_side_id:, board:, indexes:, pieces_in_hand_grouped_by_sides:)
-      @active_side_id = active_side_id % pieces_in_hand_grouped_by_sides.length
+    def initialize(board:, hands:, indexes:, side_id:)
       @bottomside_pieces = board.select { |_, name| name.upcase == name }
       @topside_pieces = board.select { |_, name| name.downcase == name }
+      @hands = hands
       @indexes = indexes
-      @pieces_in_hand_grouped_by_sides = pieces_in_hand_grouped_by_sides
-      @columns = (0...indexes.fetch(1)).map { |i| (i...length).step(indexes.fetch(1)).to_a }
+      @side_id = side_id % hands.length
+      @columns = (0...indexes.fetch(1)).map { |i| (i...squares_count).step(indexes.fetch(1)).to_a }
     end
 
     # @return [Hash] The indexes of each piece on the board.
     def board
-      bottomside_pieces.merge(**topside_pieces)
+      bottomside_pieces.merge(topside_pieces)
     end
 
     # The list of pieces on the board owned by the current player, with squares.
@@ -92,31 +94,31 @@ module Ugoki
 
     # @return [Array] The list of squares on the board.
     def squares
-      ::Array.new(length) { |i| board.fetch(i, nil) }
+      ::Array.new(squares_count) { |i| board.fetch(i, nil) }
     end
 
     def find_column_square_ids(square_id)
       @columns.find { |square_ids| square_ids.include?(square_id) }
     end
 
-    def list_of_pieces(*square_ids)
+    def list_of_pieces(square_ids)
       square_ids.map { |square_id| squares.fetch(square_id) }.compact.to_set
     end
 
     def same_piece_present_in_column?(piece_name, index)
       square_ids = find_column_square_ids(index)
-      list_of_pieces(*square_ids).include?(piece_name)
+      list_of_pieces(square_ids).include?(piece_name)
     end
 
     def turn_to_topside?
-      !active_side_id.zero?
+      !side_id.zero?
     end
 
     # The list of pieces in hand owned by the current player.
     #
     # @return [Array] The list of pieces in hand of the active side.
     def in_hand_pieces
-      pieces_in_hand_grouped_by_sides.fetch(active_side_id)
+      hands.fetch(side_id)
     end
 
     def free_square_ids
@@ -128,14 +130,16 @@ module Ugoki
     end
 
     def all_square_ids
-      (0...length).to_a
+      (0...squares_count).to_a
     end
 
+    # @param square_patterns [Hash] A hash of integers and symbols.
+    #
     # @example
     #   { 10 => :free, 20 => :free, 30 => :free, 40 => :free, 50 => :free, 60 => :free, 70 => :free }
     #
     # @return [Boolean] Is the position matching the given pattern?
-    def match?(**square_patterns)
+    def match?(square_patterns)
       square_patterns.all? { |square_id, state| correct?(square_id, state) }
     end
 
@@ -153,7 +157,7 @@ module Ugoki
       true
     end
 
-    def length
+    def squares_count
       indexes.inject(:*)
     end
   end

@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email        = "contact@cyril.email"
   spec.summary      = "Returns pseudo-legal moves from a game position."
   spec.description  = spec.summary
-  spec.homepage     = "https://developer.sashite.com/specs/"
+  spec.homepage     = "https://developer.sashite.com/specs/general-actor-notation"
   spec.license      = "MIT"
   spec.files        = Dir["LICENSE.md", "README.md", "lib/**/*"]
 
@@ -17,7 +17,9 @@ Gem::Specification.new do |spec|
     "source_code_uri" => "https://github.com/sashite/ugoki.rb"
   }
 
-  spec.add_dependency "feen", "~> 3.0.1"
+  spec.required_ruby_version = ">= 2.7.0"
+
+  spec.add_dependency "feen", "~> 3.1.0"
 
   spec.add_development_dependency "brutal"
   spec.add_development_dependency "bundler"
@@ -27,6 +29,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-thread_safety"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "yard"
-
-  spec.required_ruby_version = ">= 1.8.6"
 end
