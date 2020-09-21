@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ugoki (3.1.0)
+    ugoki (3.1.1)
       feen (~> 3.1.0)
 
 GEM

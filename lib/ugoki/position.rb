@@ -145,18 +145,26 @@ module Ugoki
 
     protected
 
+    # @return [Boolean] Is the state of the square is correct?
     def correct?(square_id, state)
       square = board.fetch(square_id, nil)
 
-      return state == :free if square.nil?
-
-      if state == :enemy
-        return (turn_to_topside? ? square.upcase == square : square.downcase == square)
+      if state == :free
+        square.nil?
+      elsif state == :occupied
+        !square.nil?
+      elsif state == :enemy
+        if turn_to_topside?
+          !square.nil? && square.upcase == square
+        else
+          !square.nil? && square.downcase == square
+        end
+      else
+        raise ::NotImplementedError, state.inspect
       end
-
-      true
     end
 
+    # @return [Integer] The number of squares on the board.
     def squares_count
       indexes.inject(:*)
     end
