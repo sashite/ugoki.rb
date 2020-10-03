@@ -29,11 +29,10 @@ contexts:
   active_side:
     - 0
     - 1
-    - 42
 
   pieces_in_hand:
-    - /
-    - S:N/
+    - "-"
+    - S:N
 
 actuals:
   - "%{subject}.to_a"

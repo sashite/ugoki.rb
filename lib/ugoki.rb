@@ -5,8 +5,8 @@ require_relative File.join("ugoki", "selector")
 
 # Namespace for the Ugoki lib.
 module Ugoki
-  # @param base [Hash] A tablebase containing precalculated pseudo-legal moves
-  #   of the game.
+  # @param base [Hash] A tablebase containing the precalculated pseudo-legal
+  #   moves of the game.
   # @param feen [String] The FEEN string representing a position.
   #
   # @see https://developer.sashite.com/specs/forsyth-edwards-expanded-notation

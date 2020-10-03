@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.7.0"
 
-  spec.add_dependency "feen", "~> 3.1.0"
+  spec.add_dependency "feen", "~> 4.0.1"
 
   spec.add_development_dependency "brutal"
   spec.add_development_dependency "bundler"

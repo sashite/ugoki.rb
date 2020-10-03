@@ -22,64 +22,64 @@ module Ugoki
     #   @return [Integer] The identifier of the player who must play.
     attr_reader :side_id
 
-    # The indexes of each bottom-side piece on the board.
+    # The index of each bottom-side piece on the board.
     #
     # @!attribute [r] bottomside_pieces
-    #   @return [Hash] The indexes of each bottom-side piece on the board.
+    #   @return [Hash] The index of each bottom-side piece on the board.
     attr_reader :bottomside_pieces
 
-    # The indexes of each top-side piece on the board.
+    # The index of each top-side piece on the board.
     #
     # @!attribute [r] topside_pieces
-    #   @return [Hash] The indexes of each top-side piece on the board.
+    #   @return [Hash] The index of each top-side piece on the board.
     attr_reader :topside_pieces
 
     # The shape of the board.
     #
-    # @!attribute [r] indexes
+    # @!attribute [r] shape
     #   @return [Array] The shape of the board.
-    attr_reader :indexes
+    attr_reader :shape
 
     # The list of pieces in hand owned by players.
     #
-    # @!attribute [r] hands
-    #   @return [Array] The list of pieces in hand for each side.
-    attr_reader :hands
+    # @!attribute [r] in_hand_pieces
+    #   @return [Array] The list of pieces in hand for the current side.
+    attr_reader :in_hand_pieces
 
     # Initialize a position.
     #
+    # @param in_hand [Array] The list of pieces in hand.
+    # @param shape [Array] The shape of the board.
     # @param side_id [Integer] The identifier of the player who must play.
-    # @param board [Hash] The indexes of each piece on the board.
-    # @param indexes [Array] The shape of the board.
-    # @param hands [Array] The list of pieces in hand
-    #   grouped by players.
+    # @param square [Hash] The index of each piece on the board.
     #
     # @example Dump a classic Tsume Shogi problem
     #   new(
+    #     "in_hand": [S r r b g g g g s n n n n p p p p p p p p p p p p p p p p p],
+    #     "shape": [9, 9],
     #     "side_id": 0,
-    #     "board": {
+    #     "square": {
     #        3 => "s",
     #        4 => "k",
     #        5 => "s",
     #       22 => "+P",
     #       43 => "+B"
-    #     },
-    #     "indexes": [9, 9],
-    #     "hands": [
-    #       %w[S],
-    #       %w[r r b g g g g s n n n n p p p p p p p p p p p p p p p p p]
-    #     ]
+    #     }
     #   )
-    def initialize(board:, hands:, indexes:, side_id:)
-      @bottomside_pieces = board.select { |_, name| name.upcase == name }
-      @topside_pieces = board.select { |_, name| name.downcase == name }
-      @hands = hands
-      @indexes = indexes
-      @side_id = side_id % hands.length
-      @columns = (0...indexes.fetch(1)).map { |i| (i...squares_count).step(indexes.fetch(1)).to_a }
+    def initialize(in_hand:, shape:, side_id:, square:)
+      @shape = shape
+      @side_id = side_id
+      @bottomside_pieces = square.select { |_, name| name.upcase == name }
+      @topside_pieces = square.select { |_, name| name.downcase == name }
+      @in_hand_pieces = if turn_to_topside?
+                          in_hand.select { |name| name.downcase == name }
+                        else
+                          in_hand.select { |name| name.upcase == name }
+                        end
+      @columns = (0...shape.fetch(1)).map { |i| (i...squares_count).step(shape.fetch(1)).to_a }
     end
 
-    # @return [Hash] The indexes of each piece on the board.
+    # @return [Hash] The index of each piece on the board.
     def board
       bottomside_pieces.merge(topside_pieces)
     end
@@ -112,13 +112,6 @@ module Ugoki
 
     def turn_to_topside?
       !side_id.zero?
-    end
-
-    # The list of pieces in hand owned by the current player.
-    #
-    # @return [Array] The list of pieces in hand of the active side.
-    def in_hand_pieces
-      hands.fetch(side_id)
     end
 
     def free_square_ids
@@ -166,7 +159,7 @@ module Ugoki
 
     # @return [Integer] The number of squares on the board.
     def squares_count
-      indexes.inject(:*)
+      shape.inject(:*)
     end
   end
 end

@@ -15,7 +15,7 @@ TRUNCATED_TABLEBASE = {
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 0 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 0 -")
 end
 
 raise if actual.to_a != []
@@ -23,7 +23,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 0 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 0 S:N")
 end
 
 raise if actual.to_a != [[nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
@@ -31,7 +31,7 @@ raise if actual.to_a != [[nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 0 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 0 -")
 end
 
 raise if actual.to_a != [[32, 13, "S:+N", nil], [32, 15, "S:+N", nil]]
@@ -39,7 +39,7 @@ raise if actual.to_a != [[32, 13, "S:+N", nil], [32, 15, "S:+N", nil]]
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 0 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 0 S:N")
 end
 
 raise if actual.to_a != [[32, 13, "S:+N", nil], [32, 15, "S:+N", nil], [nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
@@ -47,7 +47,7 @@ raise if actual.to_a != [[32, 13, "S:+N", nil], [32, 15, "S:+N", nil], [nil, 0, 
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 0 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 0 -")
 end
 
 raise if actual.to_a != [[42, 23, "S:+N", nil], [42, 23, "S:N", nil], [42, 25, "S:+N", nil], [42, 25, "S:N", nil]]
@@ -55,7 +55,7 @@ raise if actual.to_a != [[42, 23, "S:+N", nil], [42, 23, "S:N", nil], [42, 25, "
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 0 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 0 S:N")
 end
 
 raise if actual.to_a != [[42, 23, "S:+N", nil], [42, 23, "S:N", nil], [42, 25, "S:+N", nil], [42, 25, "S:N", nil], [nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
@@ -63,7 +63,7 @@ raise if actual.to_a != [[42, 23, "S:+N", nil], [42, 23, "S:N", nil], [42, 25, "
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 0 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 0 -")
 end
 
 raise if actual.to_a != [[42, 23, "S:+N", "STONE"], [42, 23, "S:N", "STONE"], [42, 25, "S:+N", nil], [42, 25, "S:N", nil]]
@@ -71,7 +71,7 @@ raise if actual.to_a != [[42, 23, "S:+N", "STONE"], [42, 23, "S:N", "STONE"], [4
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 0 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 0 S:N")
 end
 
 raise if actual.to_a != [[42, 23, "S:+N", "STONE"], [42, 23, "S:N", "STONE"], [42, 25, "S:+N", nil], [42, 25, "S:N", nil], [nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
@@ -79,7 +79,7 @@ raise if actual.to_a != [[42, 23, "S:+N", "STONE"], [42, 23, "S:N", "STONE"], [4
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 0 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 0 -")
 end
 
 raise if actual.to_a != [[73, 54, "S:N", nil], [73, 56, "S:N", nil]]
@@ -87,7 +87,7 @@ raise if actual.to_a != [[73, 54, "S:N", nil], [73, 56, "S:N", nil]]
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 0 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 0 S:N")
 end
 
 raise if actual.to_a != [[73, 54, "S:N", nil], [73, 56, "S:N", nil], [nil, 0, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
@@ -95,7 +95,7 @@ raise if actual.to_a != [[73, 54, "S:N", nil], [73, 56, "S:N", nil], [nil, 0, "S
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 0 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 0 -")
 end
 
 raise if actual.to_a != []
@@ -103,7 +103,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 0 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 0 S:N")
 end
 
 raise if actual.to_a != [[nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
@@ -111,7 +111,7 @@ raise if actual.to_a != [[nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 1 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 1 -")
 end
 
 raise if actual.to_a != []
@@ -119,7 +119,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 1 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 1 S:N")
 end
 
 raise if actual.to_a != []
@@ -127,7 +127,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 1 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 1 -")
 end
 
 raise if actual.to_a != []
@@ -135,7 +135,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 1 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 1 S:N")
 end
 
 raise if actual.to_a != []
@@ -143,7 +143,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 1 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 1 -")
 end
 
 raise if actual.to_a != []
@@ -151,7 +151,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 1 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 1 S:N")
 end
 
 raise if actual.to_a != []
@@ -159,7 +159,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 1 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 1 -")
 end
 
 raise if actual.to_a != []
@@ -167,7 +167,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 1 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 1 S:N")
 end
 
 raise if actual.to_a != []
@@ -175,7 +175,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 1 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 1 -")
 end
 
 raise if actual.to_a != []
@@ -183,7 +183,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 1 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 1 S:N")
 end
 
 raise if actual.to_a != []
@@ -191,7 +191,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 1 /")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 1 -")
 end
 
 raise if actual.to_a != []
@@ -199,103 +199,7 @@ raise if actual.to_a != []
 # ------------------------------------------------------------------------------
 
 actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 1 S:N/")
+  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 1 S:N")
 end
 
 raise if actual.to_a != []
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 42 /")
-end
-
-raise if actual.to_a != []
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "S:N,8/9/9/9/9/9/9/9/9 42 S:N/")
-end
-
-raise if actual.to_a != [[nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 42 /")
-end
-
-raise if actual.to_a != [[32, 13, "S:+N", nil], [32, 15, "S:+N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/5,S:N,3/9/9/9/9/9 42 S:N/")
-end
-
-raise if actual.to_a != [[32, 13, "S:+N", nil], [32, 15, "S:+N", nil], [nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 42 /")
-end
-
-raise if actual.to_a != [[42, 23, "S:+N", nil], [42, 23, "S:N", nil], [42, 25, "S:+N", nil], [42, 25, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/6,S:N,2/9/9/9/9 42 S:N/")
-end
-
-raise if actual.to_a != [[42, 23, "S:+N", nil], [42, 23, "S:N", nil], [42, 25, "S:+N", nil], [42, 25, "S:N", nil], [nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 42 /")
-end
-
-raise if actual.to_a != [[42, 23, "S:+N", "STONE"], [42, 23, "S:N", "STONE"], [42, 25, "S:+N", nil], [42, 25, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/5,stone,3/9/6,S:N,2/9/9/9/9 42 S:N/")
-end
-
-raise if actual.to_a != [[42, 23, "S:+N", "STONE"], [42, 23, "S:N", "STONE"], [42, 25, "S:+N", nil], [42, 25, "S:N", nil], [nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 42 /")
-end
-
-raise if actual.to_a != [[73, 54, "S:N", nil], [73, 56, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/1,S:N,7 42 S:N/")
-end
-
-raise if actual.to_a != [[73, 54, "S:N", nil], [73, 56, "S:N", nil], [nil, 0, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 42 /")
-end
-
-raise if actual.to_a != []
-
-# ------------------------------------------------------------------------------
-
-actual = begin
-  Ugoki.pseudo_legal_moves(TRUNCATED_TABLEBASE, "9/9/9/9/9/9/9/9/9 42 S:N/")
-end
-
-raise if actual.to_a != [[nil, 0, "S:N", nil], [nil, 1, "S:N", nil], [nil, 2, "S:N", nil], [nil, 3, "S:N", nil], [nil, 4, "S:N", nil], [nil, 5, "S:N", nil], [nil, 6, "S:N", nil], [nil, 7, "S:N", nil], [nil, 8, "S:N", nil], [nil, 9, "S:N", nil], [nil, 10, "S:N", nil], [nil, 11, "S:N", nil], [nil, 12, "S:N", nil], [nil, 13, "S:N", nil], [nil, 14, "S:N", nil], [nil, 15, "S:N", nil], [nil, 16, "S:N", nil], [nil, 17, "S:N", nil], [nil, 18, "S:N", nil], [nil, 19, "S:N", nil], [nil, 20, "S:N", nil], [nil, 21, "S:N", nil], [nil, 22, "S:N", nil], [nil, 23, "S:N", nil], [nil, 24, "S:N", nil], [nil, 25, "S:N", nil], [nil, 26, "S:N", nil], [nil, 27, "S:N", nil], [nil, 28, "S:N", nil], [nil, 29, "S:N", nil], [nil, 30, "S:N", nil], [nil, 31, "S:N", nil], [nil, 32, "S:N", nil], [nil, 33, "S:N", nil], [nil, 34, "S:N", nil], [nil, 35, "S:N", nil], [nil, 36, "S:N", nil], [nil, 37, "S:N", nil], [nil, 38, "S:N", nil], [nil, 39, "S:N", nil], [nil, 40, "S:N", nil], [nil, 41, "S:N", nil], [nil, 42, "S:N", nil], [nil, 43, "S:N", nil], [nil, 44, "S:N", nil], [nil, 45, "S:N", nil], [nil, 46, "S:N", nil], [nil, 47, "S:N", nil], [nil, 48, "S:N", nil], [nil, 49, "S:N", nil], [nil, 50, "S:N", nil], [nil, 51, "S:N", nil], [nil, 52, "S:N", nil], [nil, 53, "S:N", nil], [nil, 54, "S:N", nil], [nil, 55, "S:N", nil], [nil, 56, "S:N", nil], [nil, 57, "S:N", nil], [nil, 58, "S:N", nil], [nil, 59, "S:N", nil], [nil, 60, "S:N", nil], [nil, 61, "S:N", nil], [nil, 62, "S:N", nil], [nil, 63, "S:N", nil], [nil, 64, "S:N", nil], [nil, 65, "S:N", nil], [nil, 66, "S:N", nil], [nil, 67, "S:N", nil], [nil, 68, "S:N", nil], [nil, 69, "S:N", nil], [nil, 70, "S:N", nil], [nil, 71, "S:N", nil], [nil, 72, "S:N", nil], [nil, 73, "S:N", nil], [nil, 74, "S:N", nil], [nil, 75, "S:N", nil], [nil, 76, "S:N", nil], [nil, 77, "S:N", nil], [nil, 78, "S:N", nil], [nil, 79, "S:N", nil], [nil, 80, "S:N", nil]]
