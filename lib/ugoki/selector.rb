@@ -90,17 +90,12 @@ module Ugoki
 
     # @return [Set] A list of allowed drops.
     def allowed_drops
-      moves = []
-
-      position.free_square_ids.each do |free_square_id|
-        position.in_hand_pieces.each do |piece_hand|
-          next if position.same_piece_present_in_column?(piece_hand, free_square_id)
-
-          moves << [nil, free_square_id, piece_hand, nil]
+      position.in_hand_pieces.inject([]) do |moves, piece_name|
+        moves + gameplays(piece_name, nil).flat_map do |gameplay|
+          consequence = gameplay.fetch(1)
+          meta_move_to_moves(*consequence)
         end
-      end
-
-      moves.to_set
+      end.to_set
     end
   end
 end
