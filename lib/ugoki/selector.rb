@@ -50,7 +50,7 @@ module Ugoki
     #
     # @return [Set] A list of selected moves.
     def selected_moves
-      position.pieces.inject([]) do |moves, (src_square_id, piece_name)|
+      position.square_owned_pieces.inject([]) do |moves, (src_square_id, piece_name)|
         moves + gameplays(piece_name, src_square_id).flat_map do |gameplay|
           consequence = gameplay.fetch(1)
           meta_move_to_moves(*consequence)
@@ -71,7 +71,7 @@ module Ugoki
     #
     # @return [Array] A list of moves.
     def meta_move_to_moves(src_index, dst_index, promote_in_one_of_the_piece_names, is_capture)
-      captured = capture(unpromote(position.board.fetch(dst_index))) if is_capture
+      captured = capture(unpromote(position.square.fetch(dst_index))) if is_capture
 
       promote_in_one_of_the_piece_names.map do |promote_in_one_of_the_piece_name|
         [src_index, dst_index, promote_in_one_of_the_piece_name, captured]
@@ -90,7 +90,7 @@ module Ugoki
 
     # @return [Set] A list of allowed drops.
     def allowed_drops
-      position.in_hand_pieces.inject([]) do |moves, piece_name|
+      position.in_hand_owned_pieces.inject([]) do |moves, piece_name|
         moves + gameplays(piece_name, nil).flat_map do |gameplay|
           consequence = gameplay.fetch(1)
           meta_move_to_moves(*consequence)

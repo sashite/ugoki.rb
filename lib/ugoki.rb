@@ -9,6 +9,8 @@ module Ugoki
   #   moves of the game.
   # @param feen [String] The FEEN string representing a position.
   #
+  # @return [Set] The set of pseudo-legal moves.
+  #
   # @see https://developer.sashite.com/specs/forsyth-edwards-expanded-notation
   def self.pseudo_legal_moves(base, feen)
     position = Position.parse(feen)

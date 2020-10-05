@@ -15,24 +15,17 @@ module Ugoki
       new(**::FEEN::Parser.call(feen))
     end
 
-    # Players are identified by a number according to the order in which they
-    # traditionally play from the starting position.
+    # The list of pieces in hand.
     #
-    # @!attribute [r] side_id
-    #   @return [Integer] The identifier of the player who must play.
-    attr_reader :side_id
+    # @!attribute [r] in_hand
+    #   @return [Array] The list of pieces in hand.
+    attr_reader :in_hand
 
-    # The index of each bottom-side piece on the board.
+    # The list of pieces in hand owned by players.
     #
-    # @!attribute [r] bottomside_pieces
-    #   @return [Hash] The index of each bottom-side piece on the board.
-    attr_reader :bottomside_pieces
-
-    # The index of each top-side piece on the board.
-    #
-    # @!attribute [r] topside_pieces
-    #   @return [Hash] The index of each top-side piece on the board.
-    attr_reader :topside_pieces
+    # @!attribute [r] in_hand_owned_pieces
+    #   @return [Array] The list of pieces in hand for the current side.
+    attr_reader :in_hand_owned_pieces
 
     # The shape of the board.
     #
@@ -40,11 +33,36 @@ module Ugoki
     #   @return [Array] The shape of the board.
     attr_reader :shape
 
-    # The list of pieces in hand owned by players.
+    # Players are identified by a number according to the order in which they
+    # traditionally play from the starting position.
     #
-    # @!attribute [r] in_hand_pieces
-    #   @return [Array] The list of pieces in hand for the current side.
-    attr_reader :in_hand_pieces
+    # @!attribute [r] side_id
+    #   @return [Integer] The identifier of the player who must play.
+    attr_reader :side_id
+
+    # The index of each piece on the board.
+    #
+    # @!attribute [r] square
+    #   @return [Hash] The index of each piece on the board.
+    attr_reader :square
+
+    # The index of each bottom-side piece on the board.
+    #
+    # @!attribute [r] square_bottomside_pieces
+    #   @return [Hash] The index of each bottom-side piece on the board.
+    attr_reader :square_bottomside_pieces
+
+    # The index of each top-side piece on the board.
+    #
+    # @!attribute [r] square_topside_pieces
+    #   @return [Hash] The index of each top-side piece on the board.
+    attr_reader :square_topside_pieces
+
+    # The number of squares on the board.
+    #
+    # @!attribute [r] squares_count
+    #   @return [Integer] The number of squares on the board.
+    attr_reader :squares_count
 
     # Initialize a position.
     #
@@ -67,68 +85,77 @@ module Ugoki
     #     }
     #   )
     def initialize(in_hand:, shape:, side_id:, square:)
+      @in_hand = in_hand
       @shape = shape
       @side_id = side_id
-      @bottomside_pieces = square.select { |_, name| name.upcase == name }
-      @topside_pieces = square.select { |_, name| name.downcase == name }
-      @in_hand_pieces = if turn_to_topside?
-                          in_hand.select { |name| name.downcase == name }
-                        else
-                          in_hand.select { |name| name.upcase == name }
-                        end
-      @columns = (0...shape.fetch(1)).map { |i| (i...squares_count).step(shape.fetch(1)).to_a }
-    end
+      @square = square
 
-    # @return [Hash] The index of each piece on the board.
-    def board
-      bottomside_pieces.merge(topside_pieces)
+      @square_bottomside_pieces = square.select { |_, name| name.upcase == name }
+      @square_topside_pieces = square.select { |_, name| name.downcase == name }
+
+      @squares_count = shape.inject(:*)
+
+      @columns = (0...shape.fetch(1)).map do |i|
+        (i...squares_count).step(shape.fetch(1)).to_a
+      end
+
+      @in_hand_owned_pieces = if turn_to_topside?
+                                in_hand.select { |name| name.downcase == name }
+                              else
+                                in_hand.select { |name| name.upcase == name }
+                              end
     end
 
     # The list of pieces on the board owned by the current player, with squares.
     #
     # @return [Hash] Top-side's pieces if turn to topside, bottom-side's ones
     #   otherwise.
-    def pieces
-      turn_to_topside? ? topside_pieces : bottomside_pieces
+    def square_owned_pieces
+      turn_to_topside? ? square_topside_pieces : square_bottomside_pieces
     end
 
     # @return [Array] The list of squares on the board.
-    def squares
-      ::Array.new(squares_count) { |i| board.fetch(i, nil) }
+    def board_squares
+      ::Array.new(squares_count) { |i| square_content(i) }
     end
 
     def find_column_square_ids(square_id)
       @columns.find { |square_ids| square_ids.include?(square_id) }
     end
 
-    def list_of_pieces(square_ids)
-      square_ids.map { |square_id| squares.fetch(square_id) }.compact.to_set
+    def set_of_pieces(square_ids)
+      square_ids.map { |square_id| square.fetch(square_id) }.compact.to_set
     end
 
+    # @return [Boolean] Is the same piece present on the column?
     def same_piece_present_in_column?(piece_name, index)
       square_ids = find_column_square_ids(index)
-      list_of_pieces(square_ids).include?(piece_name)
+      set_of_pieces(square_ids).include?(piece_name)
     end
 
+    # @return [Boolean] Is turn to top-side?
     def turn_to_topside?
       !side_id.zero?
     end
 
+    # @return [Array] The list of ID of the free squares of the board.
     def free_square_ids
       all_square_ids - occupied_square_ids
     end
 
+    # @return [Array] The list of ID of the occupied squares of the board.
     def occupied_square_ids
-      board.keys
+      square.keys
     end
 
+    # @return [Array] The list of ID of the squares of the board.
     def all_square_ids
       (0...squares_count).to_a
     end
 
     # @param square_patterns [Hash] A hash of integers and symbols.
     #
-    # @example
+    # @example A hash of square patterns
     #   { 10 => :free, 20 => :free, 30 => :free, 40 => :free, 50 => :free, 60 => :free, 70 => :free }
     #
     # @return [Boolean] Is the position matching the given pattern?
@@ -138,28 +165,33 @@ module Ugoki
 
     protected
 
+    # @param square_id [Integer] The square ID.
+    # @param state [Symbol] The state of the square.
+    #
     # @return [Boolean] Is the state of the square is correct?
     def correct?(square_id, state)
-      square = board.fetch(square_id, nil)
+      content = square_content(square_id)
 
       if state == :free
-        square.nil?
+        content.nil?
       elsif state == :occupied
-        !square.nil?
+        !content.nil?
       elsif state == :enemy
         if turn_to_topside?
-          !square.nil? && square.upcase == square
+          !content.nil? && content.upcase == content
         else
-          !square.nil? && square.downcase == square
+          !content.nil? && content.downcase == content
         end
       else
         raise ::NotImplementedError, state.inspect
       end
     end
 
-    # @return [Integer] The number of squares on the board.
-    def squares_count
-      shape.inject(:*)
+    # @param square_id [Integer] The square ID.
+    #
+    # @return [String, nil] The square content.
+    def square_content(square_id)
+      square.fetch(square_id, nil)
     end
   end
 end
