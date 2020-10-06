@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "feen/parser"
-require "set"
 
 module Ugoki
   # The position abstraction.
@@ -58,12 +57,6 @@ module Ugoki
     #   @return [Hash] The index of each top-side piece on the board.
     attr_reader :square_topside_pieces
 
-    # The number of squares on the board.
-    #
-    # @!attribute [r] squares_count
-    #   @return [Integer] The number of squares on the board.
-    attr_reader :squares_count
-
     # Initialize a position.
     #
     # @param in_hand [Array] The list of pieces in hand.
@@ -93,12 +86,6 @@ module Ugoki
       @square_bottomside_pieces = square.select { |_, name| name.upcase == name }
       @square_topside_pieces = square.select { |_, name| name.downcase == name }
 
-      @squares_count = shape.inject(:*)
-
-      @columns = (0...shape.fetch(1)).map do |i|
-        (i...squares_count).step(shape.fetch(1)).to_a
-      end
-
       @in_hand_owned_pieces = if turn_to_topside?
                                 in_hand.select { |name| name.downcase == name }
                               else
@@ -114,43 +101,9 @@ module Ugoki
       turn_to_topside? ? square_topside_pieces : square_bottomside_pieces
     end
 
-    # @return [Array] The list of squares on the board.
-    def board_squares
-      ::Array.new(squares_count) { |i| square_content(i) }
-    end
-
-    def find_column_square_ids(square_id)
-      @columns.find { |square_ids| square_ids.include?(square_id) }
-    end
-
-    def set_of_pieces(square_ids)
-      square_ids.map { |square_id| square.fetch(square_id) }.compact.to_set
-    end
-
-    # @return [Boolean] Is the same piece present on the column?
-    def same_piece_present_in_column?(piece_name, index)
-      square_ids = find_column_square_ids(index)
-      set_of_pieces(square_ids).include?(piece_name)
-    end
-
     # @return [Boolean] Is turn to top-side?
     def turn_to_topside?
       !side_id.zero?
-    end
-
-    # @return [Array] The list of ID of the free squares of the board.
-    def free_square_ids
-      all_square_ids - occupied_square_ids
-    end
-
-    # @return [Array] The list of ID of the occupied squares of the board.
-    def occupied_square_ids
-      square.keys
-    end
-
-    # @return [Array] The list of ID of the squares of the board.
-    def all_square_ids
-      (0...squares_count).to_a
     end
 
     # @param square_patterns [Hash] A hash of integers and symbols.

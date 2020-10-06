@@ -9,9 +9,9 @@
 # Offense count: 2
 # Configuration parameters: IgnoredMethods.
 Metrics/AbcSize:
-  Max: 22
+  Max: 19
 
-# Offense count: 1
+# Offense count: 3
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods.
 Metrics/MethodLength:
   Max: 14
@@ -26,3 +26,10 @@ Metrics/PerceivedComplexity:
 Style/CaseLikeIf:
   Exclude:
     - 'lib/ugoki/position.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Layout/LineLength:
+  Max: 187
